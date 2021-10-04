@@ -5,46 +5,103 @@ public class Matriser {
 	// a)
 	public static void skrivUt(int[][] matrise) {
 		
-		// TODO
-		throw new UnsupportedOperationException("skrivUt ikke implementert");
+		for (int[] rad: matrise) {
+			for (int plass: rad) {
+				System.out.print(plass + " ");
+			}
+			System.out.println();
+		}
 	}
 
 	// b)
 	public static String tilStreng(int[][] matrise) {
-
-		// TODO
-		throw new UnsupportedOperationException("tilStreng ikke implementert");
+		
+		String matriseString = "";
+		
+		for (int[] rad: matrise) {
+			for (int plass: rad) {
+				if (plass%rad.length==0) {
+					matriseString += plass + " \n";
+				} else {
+					matriseString += plass + " ";
+				}
+				
+			}
+			
+		}
+		return matriseString;
 		
 	}
 
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
 		
-		// TODO
-		throw new UnsupportedOperationException("skaler ikke implementert");
+		int[][] skalert = matrise;
+		
+		for (int i = 0; i < matrise.length; i++) {
+			for (int j = 0; j < matrise[i].length; j++) {
+				int nyttTall = matrise[i][j]*tall;
+				skalert[i][j] = nyttTall;
+			}
+		}
+		return skalert;
 	
 	}
 
 	// d)
 	public static boolean erLik(int[][] a, int[][] b) {
 
-		// TODO
-		throw new UnsupportedOperationException("erLik ikke implementert");
+		boolean erLik = false;
+		
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < a[i].length; j++) {
+				if (a[i][j]==b[i][j]) {
+					erLik = true;
+				} else {
+					erLik = false;
+				}
+			}
+		}
+		return erLik;
 	}
 	
 	// e)
 	public static int[][] speile(int[][] matrise) {
 
-		// TODO
-		throw new UnsupportedOperationException("speile ikke implementert");
-	
+		int[][] speil = new int[matrise.length][matrise[0].length];
+		
+		for (int i = 0; i < matrise.length; i++) {
+			for (int j = 0; j < matrise[i].length; j++) {
+				if(j==i) {
+					int tall = matrise [i][j];
+					speil[i][j] = tall;
+				} else {
+					int tall = matrise [i][j];
+					speil[i][j] = tall;
+				}
+			}
+		}
+		
+		return speil;
 	}
+	
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 
-		// TODO
-		throw new UnsupportedOperationException("multipliser ikke implementert");
+		int[][] multiplisert = new int[a.length][a[0].length];
+		int pos = 0;
+		
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < a[0].length; j++) {
+				multiplisert[i][j] = 0;
+				for(int k = 0; k < a.length; k++) {
+					multiplisert[i][j] += a[i][k]*b[k][j];
+				}
+			}
+		}
+		
+		return multiplisert;
 	
 	}
 }
